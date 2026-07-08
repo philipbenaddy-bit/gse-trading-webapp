@@ -1,0 +1,18 @@
+{
+  "enabled": true,
+  "name": "Test on Code Change",
+  "description": "Runs comprehensive tests after any backend or frontend code changes",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [
+      "backend/src/**/*.ts",
+      "frontend/src/**/*.tsx",
+      "frontend/src/**/*.ts"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "A critical file was modified. Run appropriate tests: 1) If backend file: run unit tests for affected service, 2) If frontend file: check for TypeScript errors and component rendering, 3) If entity/DTO: validate database migrations, 4) If API endpoint: test with sample requests"
+  }
+}

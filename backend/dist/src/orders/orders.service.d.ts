@@ -1,0 +1,78 @@
+import { SupabaseService } from '../supabase/supabase.service';
+import { GseService } from '../gse/gse.service';
+import { CreateOrderDto } from './dto/create-order.dto';
+export declare class OrdersService {
+    private supabase;
+    private gseService;
+    constructor(supabase: SupabaseService, gseService: GseService);
+    createOrder(user: any, dto: CreateOrderDto): Promise<{
+        id: any;
+        userId: any;
+        symbol: any;
+        type: any;
+        side: any;
+        quantity: any;
+        limitPrice: any;
+        filledPrice: any;
+        filledQuantity: any;
+        totalValue: any;
+        fees: any;
+        status: any;
+        cancelReason: any;
+        createdAt: any;
+        updatedAt: any;
+    }>;
+    private executeOrder;
+    cancelOrder(user: any, orderId: string): Promise<{
+        id: any;
+        userId: any;
+        symbol: any;
+        type: any;
+        side: any;
+        quantity: any;
+        limitPrice: any;
+        filledPrice: any;
+        filledQuantity: any;
+        totalValue: any;
+        fees: any;
+        status: any;
+        cancelReason: any;
+        createdAt: any;
+        updatedAt: any;
+    }>;
+    getUserOrders(userId: string, status?: string): Promise<{
+        id: any;
+        userId: any;
+        symbol: any;
+        type: any;
+        side: any;
+        quantity: any;
+        limitPrice: any;
+        filledPrice: any;
+        filledQuantity: any;
+        totalValue: any;
+        fees: any;
+        status: any;
+        cancelReason: any;
+        createdAt: any;
+        updatedAt: any;
+    }[]>;
+    getOrderById(userId: string, orderId: string): Promise<{
+        id: any;
+        userId: any;
+        symbol: any;
+        type: any;
+        side: any;
+        quantity: any;
+        limitPrice: any;
+        filledPrice: any;
+        filledQuantity: any;
+        totalValue: any;
+        fees: any;
+        status: any;
+        cancelReason: any;
+        createdAt: any;
+        updatedAt: any;
+    }>;
+    private mapOrder;
+}

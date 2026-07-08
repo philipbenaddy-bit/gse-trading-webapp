@@ -1,0 +1,41 @@
+import { OnModuleInit, OnModuleDestroy } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
+import { CircuitBreakerState } from '../interfaces/ai.interfaces';
+export declare class CircuitBreakerService implements OnModuleInit, OnModuleDestroy {
+    private readonly configService;
+    private readonly logger;
+    private redisClient;
+    private redisAvailable;
+    private inMemoryState;
+    private inMemoryFailureCount;
+    private inMemoryLastFailure;
+    private inMemoryOpenUntil;
+    private inMemoryHalfOpenLock;
+    constructor(configService: ConfigService);
+    onModuleInit(): Promise<void>;
+    onModuleDestroy(): Promise<void>;
+    private connectRedis;
+    canExecute(): Promise<boolean>;
+    recordSuccess(): Promise<void>;
+    recordFailure(): Promise<void>;
+    getState(): Promise<CircuitBreakerState>;
+    reset(): Promise<void>;
+    private canExecuteRedis;
+    private recordSuccessRedis;
+    private recordFailureRedis;
+    private getStateRedis;
+    private resetRedis;
+    private canExecuteInMemory;
+    private recordSuccessInMemory;
+    private recordFailureInMemory;
+    private getStateInMemory;
+    private resetInMemory;
+    isRedisAvailable(): boolean;
+    setInMemoryState(state: 'closed' | 'open' | 'half-open', options?: {
+        failureCount?: number;
+        lastFailure?: number | null;
+        openUntil?: number | null;
+        halfOpenLock?: boolean;
+    }): void;
+    resetInMemoryState(): void;
+}

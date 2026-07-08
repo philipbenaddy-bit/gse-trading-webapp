@@ -1,0 +1,33 @@
+import { OnModuleInit, OnModuleDestroy } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
+import { RateLimitInfo } from '../interfaces/ai.interfaces';
+export declare class RateLimiterService implements OnModuleInit, OnModuleDestroy {
+    private readonly configService;
+    private readonly logger;
+    private redisClient;
+    private redisAvailable;
+    private inMemoryStore;
+    constructor(configService: ConfigService);
+    onModuleInit(): Promise<void>;
+    onModuleDestroy(): Promise<void>;
+    private connectRedis;
+    checkLimit(userId: string): Promise<RateLimitInfo>;
+    recordRequest(userId: string): Promise<void>;
+    removeLastRequest(userId: string): Promise<void>;
+    getRateLimitStatus(userId: string): Promise<RateLimitInfo>;
+    checkAbuseFlags(userId: string): Promise<boolean>;
+    private getHourlyKey;
+    private getDailyKey;
+    private checkLimitRedis;
+    private recordRequestRedis;
+    private removeLastRequestRedis;
+    private checkAbuseFlagsRedis;
+    private getTimestamps;
+    private cleanupTimestamps;
+    private checkLimitInMemory;
+    private recordRequestInMemory;
+    private removeLastRequestInMemory;
+    private checkAbuseFlagsInMemory;
+    isRedisAvailable(): boolean;
+    clearInMemoryStore(): void;
+}

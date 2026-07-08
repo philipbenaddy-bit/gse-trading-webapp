@@ -1,0 +1,17 @@
+{
+  "enabled": true,
+  "name": "Lint on Save",
+  "description": "Automatically runs ESLint and TypeScript compiler when .ts/.tsx files are saved",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [
+      "*.ts",
+      "*.tsx"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "Run linting and type checking on the saved file. If there are errors, fix them immediately. Focus on: 1) TypeScript errors, 2) ESLint violations, 3) Unused imports, 4) Missing return types"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "gse-trading-webapp",
+  "version": "1.0.0",
+  "description": "Ghana Stock Exchange Trading Platform",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "dev:frontend": "npm run dev --workspace=frontend",
+    "dev:backend": "npm run dev --workspace=backend",
+    "install:all": "npm install --workspace=frontend && npm install --workspace=backend"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2"
+  }
+}

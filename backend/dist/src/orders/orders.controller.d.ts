@@ -1,0 +1,75 @@
+import { OrdersService } from './orders.service';
+import { CreateOrderDto } from './dto/create-order.dto';
+import { OrderStatus } from './entities/order.entity';
+export declare class OrdersController {
+    private ordersService;
+    constructor(ordersService: OrdersService);
+    createOrder(req: any, dto: CreateOrderDto): Promise<{
+        id: any;
+        userId: any;
+        symbol: any;
+        type: any;
+        side: any;
+        quantity: any;
+        limitPrice: any;
+        filledPrice: any;
+        filledQuantity: any;
+        totalValue: any;
+        fees: any;
+        status: any;
+        cancelReason: any;
+        createdAt: any;
+        updatedAt: any;
+    }>;
+    getOrders(req: any, status?: OrderStatus): Promise<{
+        id: any;
+        userId: any;
+        symbol: any;
+        type: any;
+        side: any;
+        quantity: any;
+        limitPrice: any;
+        filledPrice: any;
+        filledQuantity: any;
+        totalValue: any;
+        fees: any;
+        status: any;
+        cancelReason: any;
+        createdAt: any;
+        updatedAt: any;
+    }[]>;
+    getOrder(req: any, id: string): Promise<{
+        id: any;
+        userId: any;
+        symbol: any;
+        type: any;
+        side: any;
+        quantity: any;
+        limitPrice: any;
+        filledPrice: any;
+        filledQuantity: any;
+        totalValue: any;
+        fees: any;
+        status: any;
+        cancelReason: any;
+        createdAt: any;
+        updatedAt: any;
+    }>;
+    cancelOrder(req: any, id: string): Promise<{
+        id: any;
+        userId: any;
+        symbol: any;
+        type: any;
+        side: any;
+        quantity: any;
+        limitPrice: any;
+        filledPrice: any;
+        filledQuantity: any;
+        totalValue: any;
+        fees: any;
+        status: any;
+        cancelReason: any;
+        createdAt: any;
+        updatedAt: any;
+    }>;
+}

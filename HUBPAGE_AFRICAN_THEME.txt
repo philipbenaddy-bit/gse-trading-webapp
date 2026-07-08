@@ -1,0 +1,180 @@
+﻿Copy this COMPLETE African-themed HubPage.tsx content and paste it into frontend/src/pages/HubPage.tsx:
+
+import { Link } from 'react-router-dom';
+import { TrendingUp, Wallet, PieChart, Newspaper, BarChart3, ArrowRight } from 'lucide-react';
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '../components/ui/Card';
+import { Button } from '../components/ui/Button';
+import { QuickStats } from '../components/trading/QuickStats';
+import { PriceTicker } from '../components/shared/PriceTicker';
+
+const mockTickerStocks = [
+  { symbol: 'GCB', price: 4.25, change: 0.15, changePercent: 3.66 },
+  { symbol: 'MTNGH', price: 1.05, change: -0.02, changePercent: -1.87 },
+  { symbol: 'TOTAL', price: 3.80, change: 0.10, changePercent: 2.70 },
+  { symbol: 'EGH', price: 6.50, change: 0.25, changePercent: 4.00 },
+  { symbol: 'CAL', price: 0.95, change: -0.05, changePercent: -5.00 },
+];
+
+const features = [
+  {
+    title: 'Market',
+    description: 'Browse all stocks and market data',
+    icon: <TrendingUp className="h-6 w-6" />,
+    href: '/market',
+    color: 'bg-[#D4AF37]/10 text-[#D4AF37]',
+  },
+  {
+    title: 'Trade',
+    description: 'Buy and sell stocks instantly',
+    icon: <BarChart3 className="h-6 w-6" />,
+    href: '/trade',
+    color: 'bg-[#228B22]/10 text-[#228B22]',
+  },
+  {
+    title: 'Portfolio',
+    description: 'Track your investments and P&L',
+    icon: <PieChart className="h-6 w-6" />,
+    href: '/portfolio',
+    color: 'bg-[#8B4513]/10 text-[#8B4513]',
+  },
+  {
+    title: 'News',
+    description: 'Latest market news and insights',
+    icon: <Newspaper className="h-6 w-6" />,
+    href: '/news',
+    color: 'bg-[#DC143C]/10 text-[#DC143C]',
+  },
+  {
+    title: 'Analytics',
+    description: 'Deep dive into market analytics',
+    icon: <BarChart3 className="h-6 w-6" />,
+    href: '/analytics',
+    color: 'bg-[#D4AF37]/10 text-[#D4AF37]',
+  },
+  {
+    title: 'Wallet',
+    description: 'Manage your funds',
+    icon: <Wallet className="h-6 w-6" />,
+    href: '/wallet',
+    color: 'bg-[#228B22]/10 text-[#228B22]',
+  },
+];
+
+export default function HubPage() {
+  return (
+    <div className="min-h-screen">
+      {/* Price Ticker */}
+      <PriceTicker stocks={mockTickerStocks} />
+
+      <div className="container py-8 space-y-8">
+        {/* Hero Section */}
+        <div className="text-center space-y-4 py-12">
+          <h1 className="text-5xl font-bold tracking-tight">
+            Welcome to <span className="text-[#D4AF37] gold-shimmer">GSE Trade</span>
+          </h1>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            Your premium gateway to the Ghana Stock Exchange. Trade with confidence, powered by real-time data and AI insights.
+          </p>
+          <div className="flex items-center justify-center gap-4 pt-4">
+            <Link to="/market">
+              <Button size="lg" className="bg-gradient-to-br from-[#D4AF37] to-[#B8860B] hover:shadow-lg hover:shadow-[#D4AF37]/30 text-white">
+                Explore Market
+                <ArrowRight className="h-5 w-5 ml-2" />
+              </Button>
+            </Link>
+            <Link to="/trade">
+              <Button size="lg" variant="outline" className="border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37]/10">
+                Start Trading
+              </Button>
+            </Link>
+          </div>
+        </div>
+
+        {/* Quick Stats */}
+        <QuickStats />
+
+        {/* Features Grid */}
+        <div>
+          <h2 className="text-2xl font-bold mb-6">Quick Access</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {features.map((feature) => (
+              <Link key={feature.title} to={feature.href}>
+                <Card className="hover:shadow-lg hover:shadow-[#D4AF37]/20 transition-all hover:scale-105 cursor-pointer h-full border-2 border-[#D4AF37]/30 hover:border-[#D4AF37]">
+                  <CardHeader>
+                    <div className={\inline-flex h-12 w-12 items-center justify-center rounded-lg \ mb-4\}>
+                      {feature.icon}
+                    </div>
+                    <CardTitle>{feature.title}</CardTitle>
+                    <CardDescription>{feature.description}</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <Button variant="ghost" className="w-full justify-between">
+                      Go to {feature.title}
+                      <ArrowRight className="h-4 w-4" />
+                    </Button>
+                  </CardContent>
+                </Card>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* Recent Activity */}
+        <Card>
+          <CardHeader>
+            <CardTitle>Getting Started</CardTitle>
+            <CardDescription>Follow these steps to start trading</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-4">
+              <div className="flex items-start gap-4">
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-[#D4AF37] to-[#B8860B] text-white font-bold shadow-lg shadow-[#D4AF37]/30">
+                  1
+                </div>
+                <div>
+                  <h3 className="font-semibold">Fund Your Wallet</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Add funds to your wallet using Mobile Money or Bank Transfer
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-[#D4AF37] to-[#B8860B] text-white font-bold shadow-lg shadow-[#D4AF37]/30">
+                  2
+                </div>
+                <div>
+                  <h3 className="font-semibold">Browse the Market</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Explore stocks, view real-time prices, and analyze trends
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-[#D4AF37] to-[#B8860B] text-white font-bold shadow-lg shadow-[#D4AF37]/30">
+                  3
+                </div>
+                <div>
+                  <h3 className="font-semibold">Place Your First Trade</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Buy or sell stocks with market or limit orders
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-[#D4AF37] to-[#B8860B] text-white font-bold shadow-lg shadow-[#D4AF37]/30">
+                  4
+                </div>
+                <div>
+                  <h3 className="font-semibold">Track Your Portfolio</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Monitor your investments and track performance in real-time
+                  </p>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  );
+}

@@ -1,0 +1,593 @@
+/* ============================================================
+   Ultra-Premium Trading Platform — Next-Gen Design System
+   Sleek · Soft · Cutting-Edge · 3D Effects · Glassmorphism
+   ============================================================ */
+
+/* ── Design Tokens ───────────────────────────────────────── */
+:root {
+  /* Soft Gradient Palette */
+  --gradient-purple:   linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-pink:     linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --gradient-blue:     linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  --gradient-sunset:   linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+  --gradient-ocean:    linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+  --gradient-peach:    linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+  
+  /* Soft Colors */
+  --primary:       #667eea;
+  --primary-light: #8b9cff;
+  --accent:        #f093fb;
+  --success:       #4facfe;
+  --danger:        #f5576c;
+  
+  /* Glassmorphism */
+  --glass-bg:      rgba(255, 255, 255, 0.7);
+  --glass-border:  rgba(255, 255, 255, 0.18);
+  --glass-shadow:  0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  
+  /* Soft Shadows */
+  --shadow-soft-sm:  0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-soft-md:  0 4px 16px rgba(0, 0, 0, 0.06);
+  --shadow-soft-lg:  0 8px 32px rgba(0, 0, 0, 0.08);
+  --shadow-soft-xl:  0 16px 48px rgba(0, 0, 0, 0.1);
+  
+  /* Smooth Transitions */
+  --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* ============================================================
+   GLASSMORPHISM CARD SYSTEM
+   ============================================================ */
+
+.premium-card,
+.african-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  box-shadow: var(--shadow-soft-lg);
+  transition: all 0.4s var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.premium-card::before,
+.african-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s;
+}
+
+.premium-card:hover::before,
+.african-card:hover::before {
+  left: 100%;
+}
+
+.premium-card:hover,
+.african-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: var(--shadow-soft-xl);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* 3D Card Effect */
+.premium-card.card-3d,
+.african-card.card-3d {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.premium-card.card-3d:hover,
+.african-card.card-3d:hover {
+  transform: rotateY(5deg) rotateX(5deg) translateY(-8px);
+}
+
+/* Elevated Variant */
+.premium-card.elevated {
+  box-shadow: var(--shadow-soft-xl);
+  background: rgba(255, 255, 255, 0.85);
+}
+
+/* Dark Mode Cards */
+.dark .premium-card,
+.dark .african-card {
+  background: rgba(26, 26, 26, 0.7);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+}
+
+.dark .premium-card:hover,
+.dark .african-card:hover {
+  background: rgba(26, 26, 26, 0.85);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* ============================================================
+   GRADIENT BUTTONS — Soft & Modern
+   ============================================================ */
+
+.btn-gradient-purple {
+  background: var(--gradient-purple);
+  color: white;
+  font-weight: 600;
+  border-radius: 16px;
+  border: none;
+  padding: 0.875rem 2rem;
+  font-size: 0.9375rem;
+  transition: all 0.3s var(--transition-smooth);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-gradient-purple::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s;
+}
+
+.btn-gradient-purple:hover::before {
+  left: 100%;
+}
+
+.btn-gradient-purple:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.btn-gradient-pink {
+  background: var(--gradient-pink);
+  color: white;
+  font-weight: 600;
+  border-radius: 16px;
+  border: none;
+  padding: 0.875rem 2rem;
+  transition: all 0.3s var(--transition-smooth);
+  box-shadow: 0 4px 15px rgba(240, 147, 251, 0.3);
+}
+
+.btn-gradient-pink:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(240, 147, 251, 0.4);
+}
+
+.btn-gradient-blue {
+  background: var(--gradient-blue);
+  color: white;
+  font-weight: 600;
+  border-radius: 16px;
+  border: none;
+  padding: 0.875rem 2rem;
+  transition: all 0.3s var(--transition-smooth);
+  box-shadow: 0 4px 15px rgba(79, 172, 254, 0.3);
+}
+
+.btn-gradient-blue:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(79, 172, 254, 0.4);
+}
+
+/* Legacy button support */
+.btn-primary,
+.btn-accent,
+.btn-gold,
+.btn-danger,
+.btn-crimson {
+  background: var(--gradient-purple);
+  color: white;
+  font-weight: 600;
+  border-radius: 16px;
+  border: none;
+  padding: 0.875rem 2rem;
+  transition: all 0.3s var(--transition-smooth);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.btn-primary:hover,
+.btn-accent:hover,
+.btn-gold:hover,
+.btn-danger:hover,
+.btn-crimson:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+/* ============================================================
+   ANIMATED GRADIENT BACKGROUNDS
+   ============================================================ */
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animated-gradient {
+  background: linear-gradient(270deg, #667eea, #764ba2, #f093fb, #f5576c);
+  background-size: 800% 800%;
+  animation: gradient-shift 15s ease infinite;
+}
+
+.animated-gradient-slow {
+  background: linear-gradient(270deg, #4facfe, #00f2fe, #667eea, #764ba2);
+  background-size: 800% 800%;
+  animation: gradient-shift 20s ease infinite;
+}
+
+/* ============================================================
+   3D FLOATING ANIMATION
+   ============================================================ */
+
+@keyframes float-3d {
+  0%, 100% {
+    transform: translateY(0px) rotateX(0deg) rotateY(0deg);
+  }
+  25% {
+    transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+  }
+  50% {
+    transform: translateY(-20px) rotateX(0deg) rotateY(10deg);
+  }
+  75% {
+    transform: translateY(-10px) rotateX(-5deg) rotateY(5deg);
+  }
+}
+
+.float-3d {
+  animation: float-3d 6s ease-in-out infinite;
+  transform-style: preserve-3d;
+}
+
+/* ============================================================
+   MORPHING BLOB BACKGROUNDS
+   ============================================================ */
+
+@keyframes morph {
+  0%, 100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  25% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+  50% {
+    border-radius: 50% 60% 30% 60% / 30% 60% 70% 40%;
+  }
+  75% {
+    border-radius: 60% 40% 60% 40% / 70% 30% 50% 60%;
+  }
+}
+
+.blob {
+  animation: morph 8s ease-in-out infinite;
+  filter: blur(40px);
+  opacity: 0.7;
+}
+
+/* ============================================================
+   GLASSMORPHISM INPUTS
+   ============================================================ */
+
+.glass-input {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 12px;
+  padding: 0.875rem 1.25rem;
+  color: inherit;
+  transition: all 0.3s var(--transition-smooth);
+}
+
+.glass-input:focus {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+  outline: none;
+}
+
+.dark .glass-input {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark .glass-input:focus {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* ============================================================
+   SMOOTH SCROLL ANIMATIONS
+   ============================================================ */
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.6s var(--transition-smooth) both;
+}
+
+@keyframes fade-in-scale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in-scale {
+  animation: fade-in-scale 0.5s var(--transition-smooth) both;
+}
+
+/* Stagger delays */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+.stagger-6 { animation-delay: 0.6s; }
+
+/* ============================================================
+   GRADIENT TEXT
+   ============================================================ */
+
+.text-gradient,
+.gold-shimmer {
+  background: var(--gradient-purple);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+
+.text-gradient-pink {
+  background: var(--gradient-pink);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+
+.text-gradient-blue {
+  background: var(--gradient-blue);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+
+/* ============================================================
+   STAT INDICATORS
+   ============================================================ */
+
+.stat-up {
+  color: #4facfe;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-down {
+  color: #f5576c;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-neutral,
+.stat-flat {
+  color: #a3a3a3;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.currency-ghs,
+.currency {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.015em;
+  font-feature-settings: 'tnum';
+}
+
+/* ============================================================
+   LIVE INDICATORS
+   ============================================================ */
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(79, 172, 254, 0.7);
+  }
+  50% {
+    opacity: 0.7;
+    box-shadow: 0 0 0 10px rgba(79, 172, 254, 0);
+  }
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4facfe;
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* ============================================================
+   SCROLLBAR — Minimal & Soft
+   ============================================================ */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #667eea, #764ba2);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #8b9cff, #9d6bc4);
+}
+
+/* ============================================================
+   SELECTION
+   ============================================================ */
+
+::selection {
+  background: rgba(102, 126, 234, 0.2);
+  color: inherit;
+}
+
+/* ============================================================
+   FORM ELEMENTS
+   ============================================================ */
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+  border-color: #667eea !important;
+  transition: all 0.3s var(--transition-smooth);
+}
+
+/* ============================================================
+   LIGHT MODE — Proper Text Visibility
+   ============================================================ */
+
+:root:not(.dark) {
+  background-color: #fafafa;
+}
+
+:root:not(.dark) body {
+  background-color: #fafafa;
+  color: #1a1a1a;
+}
+
+/* Fix all text colors in light mode */
+:root:not(.dark) .text-white {
+  color: #1a1a1a !important;
+}
+
+:root:not(.dark) .text-slate-100,
+:root:not(.dark) .text-slate-200,
+:root:not(.dark) .text-slate-300,
+:root:not(.dark) .text-slate-400 {
+  color: #64748b !important;
+}
+
+:root:not(.dark) .text-muted-foreground {
+  color: #64748b !important;
+}
+
+:root:not(.dark) .text-foreground {
+  color: #1a1a1a !important;
+}
+
+/* Fix glassmorphism in light mode */
+:root:not(.dark) .glass-input {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+:root:not(.dark) .premium-card,
+:root:not(.dark) .african-card {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+/* Fix inputs in light mode */
+:root:not(.dark) input,
+:root:not(.dark) textarea,
+:root:not(.dark) select {
+  background: #ffffff !important;
+  border-color: #e5e7eb !important;
+  color: #1a1a1a !important;
+}
+
+:root:not(.dark) input::placeholder,
+:root:not(.dark) textarea::placeholder {
+  color: #9ca3af !important;
+}
+
+/* Fix dark backgrounds in light mode */
+:root:not(.dark) .bg-slate-800,
+:root:not(.dark) .bg-slate-900,
+:root:not(.dark) [class*="bg-[#0d0d0d]"],
+:root:not(.dark) [class*="bg-[#111111]"],
+:root:not(.dark) [class*="bg-[#1a1a1a]"] {
+  background-color: #ffffff !important;
+}
+
+/* Fix borders in light mode */
+:root:not(.dark) .border-slate-700,
+:root:not(.dark) .border-slate-800 {
+  border-color: #e5e7eb !important;
+}
+
+/* Fix header in light mode */
+:root:not(.dark) header {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-bottom-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Fix footer in light mode */
+:root:not(.dark) footer {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-top-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+/* ============================================================
+   DARK MODE
+   ============================================================ */
+
+.dark {
+  background-color: #0a0a0a;
+  color: #f5f5f5;
+}
+
+.dark body {
+  background-color: #0a0a0a;
+}
+
+/* ============================================================
+   SMOOTH TRANSITIONS
+   ============================================================ */
+
+*, *::before, *::after {
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+  transition-duration: 0.3s;
+  transition-timing-function: var(--transition-smooth);
+}
+
+/* Don't transition transforms on animated elements */
+.animate-slide-up,
+.animate-fade-in-scale,
+.float-3d,
+.premium-card,
+.african-card {
+  transition-property: border-color, box-shadow, transform !important;
+}
