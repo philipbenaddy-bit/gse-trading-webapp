@@ -2,10 +2,17 @@ import { createClient } from '@supabase/supabase-js'
 import axios, { AxiosError } from 'axios'
 import { Database } from '../types/supabase'
 
-// Environment variables (move to .env file)
-const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL || 'https://pxdheimwyfilhvvdbrup.supabase.co'
-const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB4ZGhlaW13eWZpbGh2dmRicnVwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgxNjMwMzYsImV4cCI6MjA5MzczOTAzNn0.yduIpBVTnqRr2jvy6R73LJWOzPOpX936FwKfL9Jsu7w'
-const NEST_API_URL = import.meta.env.VITE_NEST_API_URL || 'http://localhost:3001/api/v1'
+// Environment variables
+const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
+const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
+const NEST_API_URL = import.meta.env.VITE_NEST_API_URL || 'http://localhost:3001/api/v1';
+
+if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
+  throw new Error(
+    'Missing Supabase environment variables. ' +
+    'Please set VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY in your .env file.'
+  );
+}
 
 // Supabase client for direct database operations
 export const supabase = createClient<Database>(SUPABASE_URL, SUPABASE_ANON_KEY, {

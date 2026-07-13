@@ -30,7 +30,7 @@ Modified `backend/src/users/users.service.ts` to use the admin client for user c
 5. Add it to your `backend/.env` file:
 
 ```env
-SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB4ZGhlaW13eWZpbGh2dmRicnVwIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3ODE2MzAzNiwiZXhwIjoyMDkzNzM5MDM2fQ.YOUR_ACTUAL_KEY_HERE
+SUPABASE_SERVICE_ROLE_KEY=your-service-role-key-here
 ```
 
 ### 4. Restart Your Backend
